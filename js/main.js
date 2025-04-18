@@ -41,39 +41,8 @@ async function fetchGitHubRepos() {
 }
 document.addEventListener("DOMContentLoaded", fetchGitHubRepos);
 
-// Dark Mode Toggle
+// Dark Mode
 const toggle = document.getElementById("darkToggle");
 toggle.addEventListener("change", () => {
   document.body.classList.toggle("dark-mode");
-});
-
-// Navbar scroll animation
-window.addEventListener("scroll", function () {
-  const navbar = document.getElementById("navbar");
-  navbar.classList.toggle("scrolled", window.scrollY > 50);
-});
-
-// Certificate Lightbox
-document.addEventListener("DOMContentLoaded", () => {
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightbox-img");
-  const close = document.querySelector(".close");
-
-  document.querySelectorAll(".cert-card img").forEach(img => {
-    img.addEventListener("click", () => {
-      lightbox.style.display = "flex";
-      lightboxImg.src = img.src;
-      lightboxImg.alt = img.alt;
-    });
-  });
-
-  close.addEventListener("click", () => {
-    lightbox.style.display = "none";
-  });
-
-  lightbox.addEventListener("click", (e) => {
-    if (e.target === lightbox) {
-      lightbox.style.display = "none";
-    }
-  });
 });
