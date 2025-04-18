@@ -19,7 +19,7 @@
   <label for="darkToggle" class="toggle-label" title="Toggle Dark Mode"><i class="fas fa-moon"></i></label>
 
   <!-- Navigation -->
-  <nav>
+  <nav id="navbar">
     <div class="nav-container">
       <div class="logo">Anshu Kumar</div>
       <ul class="nav-links">
@@ -92,9 +92,12 @@
   <section id="contact">
     <div class="section-content">
       <h2>Contact</h2>
-      <p>Email: anshuk60335@gmail.com</p>
-      <p>Phone: +91XXXXXXXXXX</p>
-      <p>Location: Hyderabad, India</p>
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit" class="cta-button">Send Message</button>
+      </form>
     </div>
   </section>
 
@@ -108,6 +111,12 @@
     </div>
     <p>© 2025 Anshu Kumar. Built with ❤️ and code.</p>
   </footer>
+
+  <!-- Lightbox for Certificates -->
+  <div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img" alt="Certificate Preview">
+  </div>
 
   <script src="js/main.js"></script>
 </body>
