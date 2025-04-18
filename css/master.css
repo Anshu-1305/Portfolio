@@ -10,18 +10,44 @@ body {
   background: #f0f4f8;
   color: #2c3e50;
   scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #2a5298 #f0f4f8;
 }
 
-a {
-  text-decoration: none;
+/* Scrollbar (webkit) */
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #f0f4f8;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #2a5298;
+  border-radius: 4px;
+}
+
+/* Dark Mode Scrollbar */
+body.dark-mode {
+  background: #1e1e2e;
+  color: #e0e0e0;
+  scrollbar-color: #90c3ff #1e1e2e;
+}
+
+body.dark-mode::-webkit-scrollbar-track {
+  background: #1e1e2e;
+}
+
+body.dark-mode::-webkit-scrollbar-thumb {
+  background-color: #90c3ff;
 }
 
 /* === LOADER === */
 #loader {
   position: fixed;
   top: 0; left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100%; height: 100%;
   background: white;
   z-index: 9999;
   display: flex;
@@ -43,13 +69,20 @@ a {
 }
 
 /* === NAVIGATION === */
-nav {
-  background: #1e3c72;
-  color: white;
-  padding: 1rem 2rem;
+#navbar {
   position: sticky;
   top: 0;
-  z-index: 100;
+  width: 100%;
+  background-color: #1e3c72;
+  transition: all 0.3s ease;
+  padding: 20px 10px;
+  z-index: 1000;
+}
+
+#navbar.scrolled {
+  padding: 10px 10px;
+  background-color: #2a5298;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .nav-container {
@@ -62,6 +95,7 @@ nav {
 .logo {
   font-size: 1.6rem;
   font-weight: 600;
+  color: white;
 }
 
 .nav-links {
@@ -98,23 +132,9 @@ nav {
   z-index: 1001;
 }
 
-body.dark-mode {
-  background: #1e1e2e;
-  color: #e0e0e0;
-}
-
 body.dark-mode nav,
 body.dark-mode footer {
   background: #121212;
-}
-
-body.dark-mode .resume-button {
-  background: #2a5298;
-}
-
-body.dark-mode .project-card {
-  background: #262626;
-  color: #ddd;
 }
 
 /* === HEADER === */
@@ -134,20 +154,23 @@ header {
   font-size: 1.2rem;
 }
 
-.cta-button {
+/* === BUTTONS === */
+.cta-button, .resume-button {
   display: inline-block;
-  margin-top: 1.2rem;
+  margin-top: 1rem;
   padding: 0.7rem 1.4rem;
   background-color: #2a5298;
   color: white;
   font-weight: 500;
   font-size: 1rem;
   border-radius: 6px;
+  text-align: center;
   transition: background-color 0.3s ease, transform 0.3s ease;
   box-shadow: 0 4px 10px rgba(42, 82, 152, 0.2);
+  white-space: nowrap;
 }
 
-.cta-button:hover {
+.cta-button:hover, .resume-button:hover {
   background-color: #1e3c72;
   transform: translateY(-2px);
   text-decoration: none;
@@ -193,38 +216,6 @@ header {
   color: #1e3c72;
 }
 
-.about-text {
-  flex: 1;
-  max-width: 600px;
-  text-align: center;
-}
-
-.about-text h2 {
-  font-size: 2rem;
-  color: #1e3c72;
-  margin-bottom: 1rem;
-}
-
-.about-text p {
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
-.resume-button {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.6rem 1.2rem;
-  background-color: #1e3c72;
-  color: white;
-  border-radius: 6px;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
-}
-
-.resume-button:hover {
-  background-color: #2a5298;
-}
-
 /* === PROJECTS SECTION === */
 .projects-grid {
   display: grid;
@@ -251,21 +242,92 @@ header {
   color: #1e3c72;
 }
 
-/* === CONTACT SECTION === */
-#contact {
-  background: #e9eff6;
-  padding: 3rem 2rem;
+/* === CERTIFICATES === */
+.cert-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.cert-card {
+  background: #ffffff;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-#contact h2 {
+.cert-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.cert-card img:hover {
+  transform: scale(1.03);
+}
+
+.cert-card p {
+  margin-top: 0.8rem;
+  font-weight: 500;
   color: #1e3c72;
-  margin-bottom: 1rem;
 }
 
-#contact p {
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
+/* === LIGHTBOX === */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+}
+
+body.dark-mode .lightbox {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.lightbox-content {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 8px;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 2001;
+}
+
+body.dark-mode .close {
+  color: #ccc;
+}
+
+/* === CONTACT FORM === */
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 1rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+body.dark-mode input,
+body.dark-mode textarea {
+  background: #2c3e50;
+  color: #e0e0e0;
+  border: 1px solid #555;
 }
 
 /* === FOOTER === */
@@ -274,7 +336,6 @@ footer {
   color: white;
   text-align: center;
   padding: 2rem 1rem;
-  margin-top: 2rem;
 }
 
 .footer-social {
@@ -285,7 +346,6 @@ footer {
   color: white;
   font-size: 1.5rem;
   margin: 0 10px;
-  display: inline-block;
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
@@ -294,39 +354,24 @@ footer {
   transform: scale(1.2);
 }
 
-/* === SECTION FADE-IN ANIMATION === */
-section {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease-in-out;
-}
-
-section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 /* === RESPONSIVE === */
 @media (max-width: 768px) {
   .nav-links {
     flex-direction: column;
     gap: 1rem;
-    align-items: center;
   }
 
   .about-container {
     flex-direction: column;
-    text-align: center;
-  }
-}
-
-@media (max-width: 500px) {
-  .profile-img {
-    max-width: 160px;
-    height: 160px;
+    padding: 2rem 1rem;
   }
 
-  .avatar-caption {
-    font-size: 1rem;
+  .cta-button, .resume-button {
+    width: 90%;
+    max-width: 280px;
+  }
+
+  .header-content h1 {
+    font-size: 2rem;
   }
 }
