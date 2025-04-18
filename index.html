@@ -1,123 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Anshu Kumar | Portfolio</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="css/master.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anshu Kumar | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/master.css" />
 </head>
+
 <body>
 
-  <!-- Loader -->
-  <div id="loader">
-    <div class="spinner"></div>
-  </div>
-
-  <!-- Dark Mode Toggle -->
-  <input type="checkbox" id="darkToggle" class="dark-toggle">
-  <label for="darkToggle" class="toggle-label" title="Toggle Dark Mode"><i class="fas fa-moon"></i></label>
-
-  <!-- Navigation -->
-  <nav id="navbar">
-    <div class="nav-container">
-      <div class="logo">Anshu Kumar</div>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#certificates">Certificates</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+    <!-- Loader -->
+    <div id="loader">
+        <div class="spinner"></div>
     </div>
-  </nav>
 
-  <!-- Header -->
-  <header id="home">
-    <div class="header-content">
-      <h1>Welcome to My Portfolio</h1>
-      <p>B.Tech CSE Student | Developer | Tech Enthusiast</p>
-      <a href="#about" class="cta-button">Learn More About Me</a>
-    </div>
-  </header>
+    <!-- Dark Mode Toggle -->
+    <input type="checkbox" id="darkToggle" class="dark-toggle">
+    <label for="darkToggle" class="toggle-label" title="Toggle Dark Mode"><i class="fas fa-moon"></i></label>
 
-  <!-- About -->
-  <section id="about">
-    <div class="about-container">
-      <div class="about-img">
-        <img src="images/profile.jpg" alt="Anshu Kumar" class="profile-img" />
-        <p class="avatar-caption">Anshu Kumar</p>
-      </div>
-      <div class="about-text">
-        <h2>About Me</h2>
-        <p>Hi! I'm <strong>Anshu Kumar</strong>, a B.Tech CSE student passionate about web development and solving real-world problems.</p>
-        <a class="resume-button" href="resume/Anshu Resume.pdf" download target="_blank">📄 Download Resume</a>
-        <a href="#projects" class="cta-button">🚀 See My Projects</a>
-        <a href="#certificates" class="cta-button">📜 View My Certificates</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <section id="projects">
-    <div class="section-content">
-      <h2>Projects</h2>
-      <div id="github-projects" class="projects-grid"></div>
-      <a href="tel:+919133120613" class="cta-button"><i class="fas fa-phone-alt"></i> Contact Me</a>
-    </div>
-  </section>
-
-  <!-- Certificates -->
-  <section id="certificates">
-    <div class="section-content">
-      <h2>Certificates</h2>
-      <div class="cert-gallery">
-        <div class="cert-card">
-          <img src="https://drive.google.com/uc?export=view&id=YOUR_FILE_ID_1" alt="Certificate 1">
-          <p>Web Development - Coursera</p>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Anshu Kumar</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
-        <div class="cert-card">
-          <img src="https://drive.google.com/uc?export=view&id=YOUR_FILE_ID_2" alt="Certificate 2">
-          <p>Python Programming - NPTEL</p>
+    </nav>
+
+    <!-- Header -->
+    <header id="home">
+        <div class="header-content">
+            <h1>Welcome to My Portfolio</h1>
+            <p>B.Tech CSE Student | Developer | Tech Enthusiast</p>
+            <a href="#about" class="cta-button">Learn More About Me</a>
         </div>
-        <div class="cert-card">
-          <img src="https://drive.google.com/uc?export=view&id=YOUR_FILE_ID_3" alt="Certificate 3">
-          <p>AI & ML - IBM SkillsBuild</p>
+    </header>
+
+    <!-- About -->
+    <section id="about">
+        <div class="about-container">
+            <div class="about-img">
+                <img src="images/profile.jpg" alt="Anshu Kumar" class="profile-img" />
+                <p class="avatar-caption">Anshu Kumar</p>
+            </div>
+            <div class="about-text">
+                <h2>About Me</h2>
+                <p>Hi! I'm <strong>Anshu Kumar</strong>, a B.Tech CSE student passionate about web development and
+                    solving real-world problems. I love building cool things with code.</p>
+                <a class="resume-button" href="resume/Anshu Resume.pdf" download target="_blank">📄 Download Resume</a>
+                <a href="#projects" class="cta-button">See My Projects</a>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact -->
-  <section id="contact">
-    <div class="section-content">
-      <h2>Contact</h2>
-      <form>
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit" class="cta-button">Send Message</button>
-      </form>
-    </div>
-  </section>
+    <!-- Projects -->
+    <section id="projects">
+        <div class="section-content">
+            <h2>Projects</h2>
+            <div id="github-projects" class="projects-grid"></div>
+            <a href="tel:+919133120613" class="cta-button">📞 Contact Me</a>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-social">
-      <a href="https://github.com/Anshu-1305" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-      <a href="https://www.instagram.com/i_anshu_kumar" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.linkedin.com/in/anshu-kumar-ak13052005" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      <a href="https://x.com/ANSHUKU55916214" target="_blank" title="Twitter"><i class="fab fa-x-twitter"></i></a>
-    </div>
-    <p>© 2025 Anshu Kumar. Built with ❤️ and code.</p>
-  </footer>
+        </div>
+    </section>
 
-  <!-- Lightbox for Certificates -->
-  <div id="lightbox" class="lightbox">
-    <span class="close">&times;</span>
-    <img class="lightbox-content" id="lightbox-img" alt="Certificate Preview">
-  </div>
+    <!-- Contact -->
+    <section id="contact">
+        <div class="section-content">
+            <h2>Contact</h2>
+            <p>Email: anshuk60335@gmail.com</p>
+            <p>Location: Hyderabad, India</p>
+        </div>
+    </section>
 
-  <script src="js/main.js"></script>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-social">
+            <a href="https://github.com/Anshu-1305" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.instagram.com/i_anshu_kumar" target="_blank" title="Instagram"><i
+                    class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/anshu-kumar-ak13052005" target="_blank" title="LinkedIn"><i
+                    class="fab fa-linkedin"></i></a>
+            <a href="https://x.com/ANSHUKU55916214" target="_blank" title="Twitter"><i class="fab fa-x-twitter"></i></a>
+        </div>
+        <p>© 2025 Anshu Kumar. Built with ❤️ and code.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
 </body>
+
 </html>
